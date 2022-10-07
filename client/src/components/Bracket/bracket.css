@@ -1,0 +1,142 @@
+body {
+    color: white;
+}
+
+.black-overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0,0,0,.8);
+    overflow-y: scroll;
+}
+
+.bracket-title {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.bracket-status {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.bracket-status-ongoing {
+    color: rgb(14,255,14);
+}
+.bracket-status-finished {
+    color: rgb(255,14,14);
+}
+
+.bracket-container-main {
+    display: flex;
+    justify-content: left;
+    margin-left: 4rem;
+    align-items: center;
+    gap: 4rem;
+    align-items: stretch;
+    margin-bottom: 4rem;
+}
+
+.bracket-round {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.bracket-match {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    position: relative;
+}
+
+.bracket-match-editable {
+    cursor: pointer;
+}
+
+.bracket-match div {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 0 .2rem .2rem 0;
+    width: 28ch;
+    position: relative;
+    height: 2rem;
+    color: black;
+    line-height: 2rem;
+    text-align: start;
+    padding-left: 1ch;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+.bracket-match-editable:hover {
+    background-color: rgba(180,180,180,0.8);
+}
+
+.bracket-match-editable:hover::before {
+    border-bottom-color:rgba(180,180,180,0.8) !important;
+    border-top-color:rgba(180,180,180,0.8) !important;
+} 
+
+.bracket-match div::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 2rem solid transparent;
+    position: absolute;
+    left:-2rem;
+    border-bottom-left-radius: .2rem;
+    border-top-left-radius: .2rem;
+}
+.bracket-match div:nth-child(even)::before {
+    border-top: 2rem solid rgba(255, 255, 255, 0.8); 
+}
+
+.bracket-match div:nth-child(odd)::before {
+    border-bottom: 2rem solid rgba(255, 255, 255, 0.8); 
+    bottom: 0;
+}
+
+.bracket-match-winner {
+    background-color: rgb(14,255,14) !important;
+}
+
+.bracket-match-winner::before {
+    border-bottom-color: rgb(14,255,14) !important;
+    border-top-color: rgb(14,255,14) !important;
+}
+
+.bracket-password-input {
+    margin-left: 80%;
+    margin-bottom: 4rem;
+}
+
+.bracket-password-input input {
+    height: 1.5rem;
+    width: calc(20ch - 0.6rem);
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    font-weight: bold;
+}
+
+.bracket-password-input input:hover,
+.bracket-password-input input:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px rgba(14,255,14,1 );
+}
+
+@media (max-width: 1050px) {
+    .bracket-password-input {
+        display: flex;
+        margin: 0;
+        margin-bottom: 2rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bracket-title {
+        margin-top: 6rem;
+    }
+}
